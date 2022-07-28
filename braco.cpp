@@ -1,9 +1,3 @@
-//*********************************************************************
-//  Minicurso: Computacao Grafica usando OpenGL
-//  Autor: Prof. Laurindo de Sousa Britto Neto
-//*********************************************************************
-
-/* Inclui os headers do OpenGL, GLU, e GLUT */
 #include <iostream>
 
 #include <GL/gl.h>
@@ -38,7 +32,7 @@ int main(int argc, char** argv){
     /* Funcao com alguns comandos para a inicializacao do OpenGL; */
     init ();
 
-    /* define as funcões de callback */
+    /* define as funcÃµes de callback */
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
@@ -54,7 +48,7 @@ void init(void){
 }
 
 void reshape (int w, int h){
-    /* muda para o modo GL_PROJECTION e reinicia a projecção */
+    /* muda para o modo GL_PROJECTION e reinicia a projecÃ§Ã£o */
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity();
 
@@ -62,13 +56,13 @@ void reshape (int w, int h){
     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
 
     /* Define a forma do "viewing volume" para termos               *
-     * uma projecção de perspectiva (3D).                           *
+     * uma projecÃ§Ã£o de perspectiva (3D).                           *
      * gluPerpective(angulo,aspecto,ponto_proximo, ponto distante); */
     gluPerspective(90, (float)w/(float)h, 0.5, 20.0);
-    gluLookAt(0.0,0.0,5.0,  // posição da câmera (olho) 
+    gluLookAt(0.0,0.0,5.0,  // posiÃ§Ã£o da cÃ¢mera (olho) 
               0.0,0.0,0.0,  // centro da cena
-              0.0,1.0,0.0); // direção de cima 
-    /* muda para o modo GL_MODELVIEW (não pretendemos alterar a projecção
+              0.0,1.0,0.0); // direÃ§Ã£o de cima 
+    /* muda para o modo GL_MODELVIEW (nÃ£o pretendemos alterar a projecÃ§Ã£o
      * quando estivermos a desenhar a tela) */
      
     glEnable(GL_DEPTH_TEST);
@@ -93,47 +87,47 @@ void keyboard (unsigned char key, int x, int y){
  			ombroAngulo = (ombroAngulo + 5) % 360;
             glutPostRedisplay();
 		break;
-        case 'o': // sentido anti-horário
+        case 'o': // sentido anti-horÃ¡rio
         	ombroY = 0;
         	ombroZ = 1;
             ombroAngulo = (ombroAngulo + 5) % 360;
             glutPostRedisplay();
         break;
-        case 'O': // sentido horário
+        case 'O': // sentido horÃ¡rio
         	ombroY = 0;
         	ombroZ = 1;
             ombroAngulo = (ombroAngulo - 5) % 360;
             glutPostRedisplay();
         break;
-        case 'c': // sentido anti-horário
+        case 'c': // sentido anti-horÃ¡rio
             cotovelo = (cotovelo + 5) % 360;
             glutPostRedisplay();
         break;
-        case 'C': // sentido horário
+        case 'C': // sentido horÃ¡rio
             cotovelo = (cotovelo - 5) % 360;
             glutPostRedisplay();
         break;
-        case 'p': // sentido horário
+        case 'p': // sentido horÃ¡rio
             polegar = (polegar - 5) % 360;
             glutPostRedisplay();
         break;
-        case 'P': // sentido horário
+        case 'P': // sentido horÃ¡rio
             polegar = (polegar + 5) % 360;
             glutPostRedisplay();
         break;
-        case 'i': // sentido horário
+        case 'i': // sentido horÃ¡rio
             indicador = (indicador - 5) % 360;
             glutPostRedisplay();
         break;
-        case 'I': // sentido horário
+        case 'I': // sentido horÃ¡rio
             indicador = (indicador + 5) % 360;
             glutPostRedisplay();
         break;
-        case 'm': // sentido horário
+        case 'm': // sentido horÃ¡rio
             medio = (medio - 5) % 360;
             glutPostRedisplay();
         break;
-        case 'M': // sentido horário
+        case 'M': // sentido horÃ¡rio
             medio = (medio + 5) % 360;
             glutPostRedisplay();
         break;
@@ -153,7 +147,7 @@ void display(void){
         /* origem posicionada no ombro */
         glTranslatef (-1.0, 0.0, 0.0);
         glRotatef ((GLfloat) ombroAngulo, 0.0, (GLfloat) ombroY, (GLfloat) ombroZ);
-        /* origem posicionada no centro do braço */
+        /* origem posicionada no centro do braÃ§o */
         glTranslatef (1.0, 0.0, 0.0);
 
         /* ante-braco */
